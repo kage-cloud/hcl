@@ -3,14 +3,72 @@ package gohcl
 import (
 	"encoding/json"
 	"fmt"
-	"reflect"
-	"testing"
-
 	"github.com/davecgh/go-spew/spew"
 	"github.com/kage-cloud/hcl/v2"
 	hclJSON "github.com/kage-cloud/hcl/v2/json"
+	"github.com/stretchr/testify/assert"
 	"github.com/zclconf/go-cty/cty"
+	"reflect"
+	"testing"
 )
+
+type withTwoAttributes struct {
+	A string `hcl:"a,optional" json:"a"`
+	B string `hcl:"b,optional" json:"b"`
+}
+
+func (w *withTwoAttributes) UnmarshalHCL(block *hcl.Block, ctx *hcl.EvalContext) hcl.Diagnostics {
+	if diags := DecodeBody(block.Body, ctx, w); diags != nil && diags.HasErrors() {
+		return diags
+	}
+
+	t := w.A
+	w.A = w.B
+	w.B = t
+
+	return nil
+}
+
+type testStruct struct {
+	Attributes []withTwoAttributes `hcl:"attrs,block" json:"attrs"`
+}
+
+func TestUnmarshal(t *testing.T) {
+	given := &testStruct{
+		Attributes: []withTwoAttributes{
+			{
+				A: "hello",
+				B: "world",
+			},
+		},
+	}
+
+	expected := given
+
+	b, err := json.Marshal(given)
+	if err != nil {
+		fmt.Println(err.Error())
+		t.FailNow()
+	}
+
+	expected.Attributes[0].A = "world"
+	expected.Attributes[0].B = "hello"
+
+	f, diags := hclJSON.Parse(b, "test.json")
+	if diags != nil && diags.HasErrors() {
+		fmt.Println(diags.Error())
+		t.FailNow()
+	}
+
+	actual := new(testStruct)
+	diags = DecodeBody(f.Body, nil, actual)
+	if diags != nil && diags.HasErrors() {
+		fmt.Println(diags.Error())
+		t.FailNow()
+	}
+
+	assert.Equal(t, expected, actual)
+}
 
 func TestDecodeBody(t *testing.T) {
 	deepEquals := func(other interface{}) func(v interface{}) bool {

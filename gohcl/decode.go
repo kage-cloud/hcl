@@ -36,6 +36,10 @@ func DecodeBody(body hcl.Body, ctx *hcl.EvalContext, val interface{}) hcl.Diagno
 	return decodeBodyToValue(body, ctx, rv.Elem())
 }
 
+type Unmarshaler interface {
+	UnmarshalHCL(block *hcl.Block, ctx *hcl.EvalContext) hcl.Diagnostics
+}
+
 func decodeBodyToValue(body hcl.Body, ctx *hcl.EvalContext, val reflect.Value) hcl.Diagnostics {
 	et := val.Type()
 	switch et.Kind() {
@@ -245,6 +249,18 @@ func decodeBlockToValue(block *hcl.Block, ctx *hcl.EvalContext, v reflect.Value)
 	var diags hcl.Diagnostics
 
 	ty := v.Type()
+
+	if v.CanInterface() {
+		if unm, ok := v.Interface().(Unmarshaler); ok {
+			return unm.UnmarshalHCL(block, ctx)
+		}
+	}
+
+	if v.CanAddr() && v.CanInterface() {
+		if unm, ok := v.Addr().Interface().(Unmarshaler); ok {
+			return unm.UnmarshalHCL(block, ctx)
+		}
+	}
 
 	switch {
 	case blockType.AssignableTo(ty):
