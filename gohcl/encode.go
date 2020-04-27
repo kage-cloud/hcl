@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"sort"
 
-	"github.com/hashicorp/hcl/v2/hclwrite"
+	"github.com/kage-cloud/hcl/v2/hclwrite"
 	"github.com/zclconf/go-cty/cty/gocty"
 )
 

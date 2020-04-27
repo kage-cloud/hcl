@@ -1,7 +1,7 @@
 package hclsyntax
 
 import (
-	"github.com/hashicorp/hcl/v2"
+	"github.com/kage-cloud/hcl/v2"
 )
 
 // Variables returns all of the variables referenced within a given experssion.

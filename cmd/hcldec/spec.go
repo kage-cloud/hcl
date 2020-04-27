@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 
-	"github.com/hashicorp/hcl/v2"
-	"github.com/hashicorp/hcl/v2/ext/userfunc"
-	"github.com/hashicorp/hcl/v2/gohcl"
-	"github.com/hashicorp/hcl/v2/hcldec"
+	"github.com/kage-cloud/hcl/v2"
+	"github.com/kage-cloud/hcl/v2/ext/userfunc"
+	"github.com/kage-cloud/hcl/v2/gohcl"
+	"github.com/kage-cloud/hcl/v2/hcldec"
 	"github.com/zclconf/go-cty/cty"
 	"github.com/zclconf/go-cty/cty/function"
 )

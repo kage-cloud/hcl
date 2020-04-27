@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/hashicorp/hcl/v2/hclsimple"
+	"github.com/kage-cloud/hcl/v2/hclsimple"
 )
 
 func Example_nativeSyntax() {

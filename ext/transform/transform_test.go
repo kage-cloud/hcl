@@ -5,8 +5,8 @@ import (
 
 	"reflect"
 
-	"github.com/hashicorp/hcl/v2"
-	"github.com/hashicorp/hcl/v2/hcltest"
+	"github.com/kage-cloud/hcl/v2"
+	"github.com/kage-cloud/hcl/v2/hcltest"
 	"github.com/zclconf/go-cty/cty"
 )
 

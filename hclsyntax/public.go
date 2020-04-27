@@ -1,7 +1,7 @@
 package hclsyntax
 
 import (
-	"github.com/hashicorp/hcl/v2"
+	"github.com/kage-cloud/hcl/v2"
 )
 
 // ParseConfig parses the given buffer as a whole HCL config file, returning

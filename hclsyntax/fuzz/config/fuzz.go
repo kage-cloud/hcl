@@ -1,8 +1,8 @@
 package fuzzconfig
 
 import (
-	"github.com/hashicorp/hcl/v2"
-	"github.com/hashicorp/hcl/v2/hclsyntax"
+	"github.com/kage-cloud/hcl/v2"
+	"github.com/kage-cloud/hcl/v2/hclsyntax"
 )
 
 func Fuzz(data []byte) int {

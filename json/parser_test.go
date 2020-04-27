@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/go-test/deep"
-	"github.com/hashicorp/hcl/v2"
+	"github.com/kage-cloud/hcl/v2"
 )
 
 func init() {

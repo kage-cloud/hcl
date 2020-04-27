@@ -33,7 +33,7 @@ package main
 
 import (
 	"log"
-	"github.com/hashicorp/hcl/v2/hclsimple"
+	"github.com/kage-cloud/hcl/v2/hclsimple"
 )
 
 type Config struct {
@@ -52,7 +52,7 @@ func main() {
 
 A lower-level API is available for applications that need more control over
 the parsing, decoding, and evaluation of configuration. For more information,
-see [the package documentation](https://pkg.go.dev/github.com/hashicorp/hcl/v2).
+see [the package documentation](https://pkg.go.dev/github.com/kage-cloud/hcl/v2).
 
 ## Why?
 
@@ -178,7 +178,7 @@ _semantic import versioning_ mechanism:
 ```go
 import (
     hcl1 "github.com/hashicorp/hcl"
-    hcl2 "github.com/hashicorp/hcl/v2"
+    hcl2 "github.com/kage-cloud/hcl/v2"
 )
 ```
 

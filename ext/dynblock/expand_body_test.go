@@ -3,9 +3,9 @@ package dynblock
 import (
 	"testing"
 
-	"github.com/hashicorp/hcl/v2"
-	"github.com/hashicorp/hcl/v2/hcldec"
-	"github.com/hashicorp/hcl/v2/hcltest"
+	"github.com/kage-cloud/hcl/v2"
+	"github.com/kage-cloud/hcl/v2/hcldec"
+	"github.com/kage-cloud/hcl/v2/hcltest"
 	"github.com/zclconf/go-cty/cty"
 )
 

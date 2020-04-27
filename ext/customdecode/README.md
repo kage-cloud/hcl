@@ -36,7 +36,7 @@ bridge to allow that sort of custom decoding to be used via mechanisms that
 normally deal in `cty.Value`, such as `hcldec` and native syntax function
 calls as listed above.
 
-(Note: [`gohcl`](https://pkg.go.dev/github.com/hashicorp/hcl/v2/gohcl) has
+(Note: [`gohcl`](https://pkg.go.dev/github.com/kage-cloud/hcl/v2/gohcl) has
 its own mechanism to support this use case, exploiting the fact that it is
 working directly with "normal" Go types. Decoding into a struct field of
 type `hcl.Expression` obtains the expression directly without evaluating it

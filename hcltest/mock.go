@@ -3,9 +3,9 @@ package hcltest
 import (
 	"fmt"
 
-	"github.com/hashicorp/hcl/v2/hclsyntax"
+	"github.com/kage-cloud/hcl/v2/hclsyntax"
 
-	"github.com/hashicorp/hcl/v2"
+	"github.com/kage-cloud/hcl/v2"
 	"github.com/zclconf/go-cty/cty"
 )
 

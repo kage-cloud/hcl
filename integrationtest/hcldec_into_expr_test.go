@@ -5,10 +5,10 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
-	"github.com/hashicorp/hcl/v2"
-	"github.com/hashicorp/hcl/v2/ext/customdecode"
-	"github.com/hashicorp/hcl/v2/hcldec"
-	"github.com/hashicorp/hcl/v2/hclsyntax"
+	"github.com/kage-cloud/hcl/v2"
+	"github.com/kage-cloud/hcl/v2/ext/customdecode"
+	"github.com/kage-cloud/hcl/v2/hcldec"
+	"github.com/kage-cloud/hcl/v2/hclsyntax"
 	"github.com/zclconf/go-cty/cty"
 )
 

@@ -1,7 +1,7 @@
 package hclwrite
 
 import (
-	"github.com/hashicorp/hcl/v2/hclsyntax"
+	"github.com/kage-cloud/hcl/v2/hclsyntax"
 )
 
 type nativeNodeSorter struct {

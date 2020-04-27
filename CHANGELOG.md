@@ -59,7 +59,7 @@ program using Go's _semantic import versioning_ mechanism:
 ```
 import (
     hcl1 "github.com/hashicorp/hcl"
-    hcl2 "github.com/hashicorp/hcl/v2"
+    hcl2 "github.com/kage-cloud/hcl/v2"
 )
 ```
 
